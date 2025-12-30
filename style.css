@@ -405,33 +405,37 @@ img {
 
 /* Footer Styles */
 footer {
-    background-color: #1a1a1a;
-    /* Dark High-Contrast Background */
-    color: white;
+    background-color: #f8f9fa;
+    /* Light Gray Background */
+    color: #343a40;
+    /* Dark Gray Text */
     padding-block: 4rem 2rem;
     margin-top: 4rem;
+    border-top: 1px solid #e9ecef;
 }
 
 .footer-links h4 {
-    color: white !important;
-    /* Force white headings */
+    color: #000000 !important;
+    /* Black Headings */
 }
 
 .footer-links a {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #495057 !important;
+    /* Dark Gray Links */
 }
 
 .footer-links a:hover {
-    color: white !important;
+    color: var(--primary) !important;
+    /* Teal on Hover */
     text-decoration: underline;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-top: 1px solid #dee2e6;
     margin-top: 3rem;
     padding-top: 2rem;
     text-align: center;
-    color: rgba(255, 255, 255, 0.8);
+    color: #6c757d;
 }
 
 .footer-grid {
