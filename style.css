@@ -14,12 +14,12 @@
     --bg-card-hover: #e9ecef;
     /* Gray 200 */
 
-    --primary: #0d6efd;
-    /* Corporate Blue */
-    --primary-glow: rgba(13, 110, 253, 0.2);
-    /* Soft Blue Glow */
-    --secondary: #0dcaf0;
-    /* Cyan */
+    --primary: #53565b;
+    /* Logo Gray */
+    --primary-glow: rgba(83, 86, 91, 0.2);
+    /* Soft Gray Glow */
+    --secondary: #343a40;
+    /* Dark Gray */
 
     --text-main: #000000;
     /* Pure Black */
