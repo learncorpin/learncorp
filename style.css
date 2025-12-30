@@ -283,6 +283,8 @@ img {
 .section-header h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #000000;
+    /* Force Black */
 }
 
 .grid-3 {
@@ -367,7 +369,7 @@ img {
     border: 1px solid var(--glass-border);
     padding: 0.8rem 1rem;
     border-radius: 8px;
-    color: white;
+    color: var(--text-main);
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -393,7 +395,7 @@ img {
 
 .form-group select option {
     background-color: var(--bg-card);
-    color: white;
+    color: var(--text-main);
 }
 
 @media (max-width: 600px) {
@@ -788,6 +790,20 @@ footer {
 @media (max-width: 900px) {
     .contact-wrapper {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Tablet Layout (768px - 1024px) */
+@media (max-width: 1024px) {
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        /* Force 2 columns on tablet */
+        gap: 1.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        /* Slightly smaller headings */
     }
 }
 
