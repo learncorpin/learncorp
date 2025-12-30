@@ -29,67 +29,74 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkScroll);
     checkScroll(); // Initial check
 
-    // Contact Form Handling
-    const contactForm = document.getElementById('contact-form');
+    // Unified Form Handling for Contact and Internships
+    const formsToHandle = ['contact-form', 'internship-form']; // IDs to check
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
+    formsToHandle.forEach(formId => {
+        const form = document.getElementById(formId);
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
 
-            const submitBtn = contactForm.querySelector('button');
-            const statusMsg = document.getElementById('form-status');
-            const originalBtnText = submitBtn.innerHTML;
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const statusMsg = document.getElementById('form-status'); // Ensure this ID exists in both forms
+                const originalBtnText = submitBtn.innerHTML;
 
-            // Loading State
-            submitBtn.innerHTML = 'Sending...';
-            submitBtn.disabled = true;
-            statusMsg.textContent = '';
+                // Loading State
+                submitBtn.innerHTML = 'Sending... <i class="ri-loader-4-line ri-spin"></i>';
+                submitBtn.disabled = true;
+                statusMsg.textContent = '';
+                statusMsg.style.color = 'inherit';
 
-            // Gather Data
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
+                // Gather Data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
 
-            try {
-                // Use relative path for production/local flexibility
-                const apiUrl = '/api/contact';
+                try {
+                    // Use relative path for production/local flexibility
+                    const apiUrl = '/api/contact';
 
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
 
-                const contentType = response.headers.get("content-type");
-                if (contentType && contentType.indexOf("application/json") !== -1) {
-                    const result = await response.json();
-                    if (!response.ok) throw new Error(result.message || 'Server error');
+                    const contentType = response.headers.get("content-type");
 
-                    if (result.success) {
-                        statusMsg.style.color = '#10b981';
-                        statusMsg.textContent = 'Message sent successfully!';
-                        contactForm.reset();
+                    if (contentType && contentType.includes("application/json")) {
+                        const result = await response.json();
+
+                        if (!response.ok) {
+                            throw new Error(result.message || 'Server error');
+                        }
+
+                        if (result.success) {
+                            statusMsg.style.color = '#10b981'; // Green color
+                            statusMsg.innerHTML = '<i class="ri-checkbox-circle-line"></i> Message sent successfully!';
+                            form.reset();
+                        } else {
+                            throw new Error(result.message || 'Failed to send message.');
+                        }
                     } else {
-                        throw new Error(result.message);
+                        const text = await response.text();
+                        console.error("Non-JSON Response:", text);
+                        throw new Error("Server returned non-JSON response. Please check server logs.");
                     }
-                } else {
-                    const text = await response.text();
-                    console.error("Non-JSON Response:", text);
-                    throw new Error("Server returned non-JSON response. Check console.");
+
+                } catch (error) {
+                    console.error('Submission Error:', error);
+                    statusMsg.style.color = '#ef4444'; // Red color
+                    statusMsg.textContent = error.message || 'Error sending message. Please try again later.';
+                } finally {
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
                 }
-
-
-            } catch (error) {
-                console.error('Submission Error:', error);
-                statusMsg.style.color = '#ef4444'; // Red
-                statusMsg.textContent = error.message || 'Error sending message. Please check if the server is running.';
-            } finally {
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        });
-    }
+            });
+        }
+    });
 
     // Auto-select Internship Role
     const applyBtns = document.querySelectorAll('.apply-btn-role');
