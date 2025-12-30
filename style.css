@@ -404,6 +404,36 @@ img {
 }
 
 /* Footer Styles */
+footer {
+    background-color: var(--primary);
+    /* Teal Background */
+    color: white;
+    padding-block: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+.footer-links h4 {
+    color: white !important;
+    /* Force white headings */
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.footer-links a:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.8);
+}
+
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1fr;
