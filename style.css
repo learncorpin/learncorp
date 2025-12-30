@@ -63,7 +63,7 @@ h5,
 h6 {
     font-family: 'Space Grotesk', sans-serif;
     line-height: 1.1;
-    color: white;
+    color: var(--text-main);
 }
 
 a {
