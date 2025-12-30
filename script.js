@@ -79,15 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     throw new Error("Server returned non-JSON response. Check console.");
                 }
 
-                // const result = await response.json(); // Old unsafe parsing
-
-                if (result.success) {
-                    statusMsg.style.color = '#10b981'; // Green
-                    statusMsg.textContent = 'Message sent successfully! We will contact you soon.';
-                    contactForm.reset();
-                } else {
-                    throw new Error(result.message || 'Failed to send');
-                }
 
             } catch (error) {
                 console.error('Submission Error:', error);
