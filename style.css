@@ -792,56 +792,75 @@ footer {
 }
 
 @media (max-width: 768px) {
-
-    /* Header Container - Auto height for wrapping */
     .header {
-        height: auto;
-        min-height: var(--nav-height);
-        padding: 0.5rem 0;
+        height: var(--nav-height);
     }
 
-    /* Navbar - Column/Wrap Layout */
     .navbar {
-        padding: 0.5rem 1rem;
         display: flex;
+        flex-direction: row;
+        /* Horizontal alignment */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .logo {
+        margin: 0;
+    }
+
+    /* Show Toggle Button */
+    .mobile-toggle {
+        display: block !important;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: var(--text-main);
+    }
+
+    /* Hide Socials/Buttons on Mobile if needed, or adjust */
+    .header-socials,
+    .btn-primary {
+        display: none !important;
+    }
+
+    .navbar>div:last-child {
+        display: flex !important;
+        /* Show the container holding the toggle */
+        gap: 1rem;
+    }
+
+    /* Mobile Menu Drawer */
+    .nav-menu {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        height: 0;
+        /* Collapsed by default */
+        background: rgba(255, 255, 255, 0.98);
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
-    }
-
-    /* Logo - Centered Top */
-    .logo {
-        margin: 0 !important;
-        /* Reset desktop margins */
         justify-content: center;
-        width: auto;
-    }
-
-    /* Hide Socials & Toggle Container */
-    .navbar>div:last-child {
-        margin: 0 !important;
-        display: none !important;
-        /* Hide the entire right cluster (socials, btn, toggle) */
-    }
-
-    /* Navigation Menu - Visible Row Below Logo */
-    .nav-menu {
-        display: flex !important;
-        position: static;
-        width: 100%;
-        background: transparent;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+        overflow: hidden;
+        /* Hide content when collapsed */
+        transition: height 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
         padding: 0;
-        border: none;
-        box-shadow: none;
-        transform: none;
-        opacity: 1;
-        gap: 1rem;
-        /* Space between links */
-        pointer-events: auto;
     }
+
+    /* Active State for Menu */
+    .nav-menu.active {
+        height: 300px;
+        /* Expand */
+        opacity: 1;
+        pointer-events: auto;
+        padding: 2rem 0;
+    }
+
+    /* Orphan code removed */
 
     .nav-menu li {
         margin: 0;
