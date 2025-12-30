@@ -405,8 +405,8 @@ img {
 
 /* Footer Styles */
 footer {
-    background-color: var(--primary);
-    /* Teal Background */
+    background-color: #1a1a1a;
+    /* Dark High-Contrast Background */
     color: white;
     padding-block: 4rem 2rem;
     margin-top: 4rem;
