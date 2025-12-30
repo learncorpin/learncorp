@@ -1,0 +1,53 @@
+# Implementation Plan - LearnCorp: Best IT Field Company
+
+**Goal**: Rebuild the LearnCorp website from scratch to represent a leading "IT Field Company". The design will be premium, modern, and corporate, emphasizing technology solutions and professional excellence.
+
+## 🎨 Design Concept
+- **Theme**: "Tech Prime" - A sophisticated blend of **Deep Midnight Blue** (professionalism/trust) and **Vibrant Emerald/Neon Green** (innovation/growth).
+- **Style**: Modern Minimalist with "Glassmorphism" elements, subtle tech-grid backgrounds, and smooth scroll animations.
+- **Identity**: "LearnCorp" - Bridging the gap between IT Solutions and Professional Learning.
+
+## 🏗 Structure
+
+### 1. Global Setup
+- **Typography**: `Inter` (UI/Body) and `Space Grotesk` (Headings) for a modern tech feel.
+- **Reset & Variables**: Clean modern reset, CSS variables for theming.
+
+### 2. Header / Navigation
+- **Sticky Glass Navbar**: Logo (Left), Modern Menu (Center), "Get Started" CTA (Right).
+- **Cinematic Scroll**: Transparent -> Solid Dark Blur on scroll.
+
+### 3. Hero Section
+- **Headline**: "Innovating the Future of IT."
+- **Subheadline**: "Premier Software Solutions & Corporate Training for the Digital Age."
+- **Visuals**: Abstract 3D tech shapes or network nodes background.
+- **CTAs**: "Explore Services", "Our Work".
+
+### 4. Services Section (The "IT Company" Core)
+- **Cards**: High-quality glass cards with hover lift effects.
+- **Service List**:
+    - **Custom Software Development**
+    - **Cloud Infrastructure & DevOps**
+    - **AI & Machine Learning Solutions**
+    - **Corporate IT Training**
+
+### 5. Why Choose Us / Stats
+- **Animated Counters**: Projects Delivered, Happy Clients, Expert Developers.
+- **Features**: 24/7 Support, Agile Methodology, Cutting-edge Tech.
+
+### 6. Contact / Footer
+- **Professional Footer**: Links, Newsletter, Socials, Copyright.
+
+## 📁 File Structure
+- `d:/Learncorp website/index.html`
+- `d:/Learncorp website/style.css`
+- `d:/Learncorp website/script.js`
+- `d:/Learncorp website/assets/` (if needed for icons, otherwise using CDNs)
+
+## ⚡ Execution Steps
+1.  **Initialize**: Create blank files.
+2.  **Core CSS**: Set up variables, typography, dark/light theme foundation.
+3.  **Skeleton HTML**: Build the semantic structure.
+4.  **Components**: Implement Header, Hero, Services, Footer.
+5.  **Interactivity**: Mobile menu, scroll effects, animated counters.
+6.  **Verify**: Check aesthetics and responsiveness.
