@@ -818,8 +818,9 @@ footer {
     }
 
     /* Hide Socials/Buttons on Mobile if needed, or adjust */
+    /* Hide Socials/Buttons on Mobile if needed, or adjust */
     .header-socials,
-    .btn-primary {
+    .header .btn-primary {
         display: none !important;
     }
 
