@@ -87,9 +87,10 @@ img {
     margin-inline: auto;
 }
 
+/* Text Gradient Animation */
 .text-gradient {
-    color: #000000;
-    /* Pure Black for Name */
+    color: #000000 !important;
+    /* Force Pure Black */
     background: none;
     -webkit-background-clip: border-box;
     background-clip: border-box;
